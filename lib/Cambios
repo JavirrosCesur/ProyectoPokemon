@@ -1,0 +1,9 @@
+Reducir estamina al usar un movimiento.
+
+Métodos criarPokemon y entrenarPokemon.
+
+Método aprender movimiento cada 3 niveles.
+
+¿Incluir Tipo a Movimiento? Para restringir aprenderMovimiento.
+
+Método en Turno para hacer log de combate.
