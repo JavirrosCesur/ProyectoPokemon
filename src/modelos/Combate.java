@@ -1,11 +1,10 @@
-package Pokemon.src.modelo.combate;
+package src.modelos;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import Pokemon.src.modelo.entrenador.Entrenador;
 
 public class Combate {
 

@@ -1,10 +1,7 @@
-package Pokemon.src.modelo.entrenador;
+package src.modelos;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import Pokemon.src.modelo.pokemon.*;
-import Pokemon.src.modelo.pokemon.movimientos.Movimiento;
 
 public class Entrenador {
 

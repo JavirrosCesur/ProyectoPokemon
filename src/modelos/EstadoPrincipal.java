@@ -1,4 +1,4 @@
-package Pokemon.src.modelo.pokemon.enumerados;
+package src.modelos;
 
 public enum EstadoPrincipal {
     CONGELADO,

@@ -1,4 +1,4 @@
-package Pokemon.src.modelo.pokemon;
+package src.modelos;
 
 public enum Genero {
     MACHO,

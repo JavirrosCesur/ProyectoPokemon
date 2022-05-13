@@ -1,4 +1,4 @@
-package Pokemon.src.modelo.combate;
+package src.modelos;
 
 public class Turno {
     

@@ -1,4 +1,4 @@
-package Pokemon.src.modelo.pokemon.movimientos;
+package src.modelos;
 
 public enum FisicoEspecial {
     FISICO,
