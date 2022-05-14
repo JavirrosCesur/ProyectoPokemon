@@ -16,10 +16,11 @@ public class Combate {
     private Entrenador ganador;
     private Entrenador perdedor;
     private static int contadorCombates = 0;
-    public static final String PATH = "Pokemon/log/combate" + contadorCombates + ".log";
+    public static String PATH = "./log/combate" + contadorCombates + ".log";
 
     Combate(Entrenador jugador, Entrenador rival) {
         this.addContadorCombates();
+        this.refreshPATH();
         this.turnos = new ArrayList<>();
         this.jugador = jugador;
         this.rival = rival;
@@ -93,8 +94,13 @@ public class Combate {
         contadorCombates++;
     }
 
+    public void refreshPATH(){
+        PATH = "./log/combate" + contadorCombates + ".log";
+    }
+
     public void addTurno(){
-        this.turnos.add(new Turno("Acción Jugador", "Acción Rival"));
+        this.turnos.add(new Turno("Accion de " + jugador.getNombre() + ": ", 
+        "Accion de " + rival.getNombre() + ": "));
     }
 
     public void koPokemon(){
