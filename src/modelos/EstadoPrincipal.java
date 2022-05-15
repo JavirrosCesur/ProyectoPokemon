@@ -1,4 +1,4 @@
-package src.modelos;
+package modelos;
 
 public enum EstadoPrincipal {
     CONGELADO,
