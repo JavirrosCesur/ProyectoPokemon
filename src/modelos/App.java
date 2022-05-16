@@ -14,10 +14,11 @@ public class App extends Application {
         launch(args);
     }
 
+
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../vistas/MenuPrincipal.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("vistas/MenuPrincipal.fxml"));
             Scene scene = new Scene(root);
 
 

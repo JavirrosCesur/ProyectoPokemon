@@ -45,7 +45,7 @@
    <children>
       <AnchorPane id="ç" prefHeight="366.0" prefWidth="644.0">
          <children>
-            <ImageView fitHeight="366.0" fitWidth="647.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ivFoto" fitHeight="366.0" fitWidth="647.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pokemon-UK-1.jpg" />
                </image>
@@ -83,7 +83,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="145.0" fitWidth="369.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ivTitulo" fitHeight="145.0" fitWidth="369.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@VIR-2713-62-cual-es-tu-nivel-d-unscreen.gif" />
                </image>
