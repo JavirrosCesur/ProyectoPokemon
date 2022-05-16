@@ -12,7 +12,6 @@ public class Controllers implements Initializable {
 
     @FXML
     private Button btnFunciona;
-
     @FXML
     private void sysoFunciona(ActionEvent event){
         System.out.println("¡FUNCIONA!");
