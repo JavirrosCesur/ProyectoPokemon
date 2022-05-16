@@ -36,11 +36,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controladores.Controllers">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controladores.Controllers">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="btnDescubre" layoutX="257.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToPrueba" text="Descubre si funciona" />
+            <Button fx:id="botonPrueba" layoutX="257.0" layoutY="187.0" mnemonicParsing="false" onAction="#mishuevos" text="Descubre si funciona" />
          </children>
     </AnchorPane>
   </children>

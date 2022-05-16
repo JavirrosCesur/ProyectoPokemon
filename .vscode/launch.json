@@ -6,31 +6,24 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch App",
-            "request": "launch",
-            "mainClass": "src.modelos.App",
-            "projectName": "ProyectoPokemon_49495d29"
-        },
-        {
-            "type": "java",
-            "name": "Launch MainLogTest",
-            "request": "launch",
-            "mainClass": "src.modelos.MainLogTest",
-            "projectName": "ProyectoPokemon_c345daf8"
-        },
-        {
-            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
         },
         {
             "type": "java",
-            "name": "Launch Pokemon",
+            "name": "Launch App",
             "request": "launch",
             "mainClass": "src.modelos.App",
-            "projectName": "ProyectoPokemon_c345daf8",
+            "projectName": "ProyectoPokemon_49495d29",
             "vmArgs": "--module-path=C:/Users/Margarita/Desktop/javafx-sdk-17.0.2/lib --add-modules=javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainLogTest",
+            "request": "launch",
+            "mainClass": "src.modelos.MainLogTest",
+            "projectName": "ProyectoPokemon_49495d29"
         }
     ]
 }

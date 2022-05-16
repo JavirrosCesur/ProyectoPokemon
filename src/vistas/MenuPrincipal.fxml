@@ -41,13 +41,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="359.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Controllers">
+<VBox prefHeight="359.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controladores.MenuPrincipalController">
    <children>
       <AnchorPane id="ç" prefHeight="366.0" prefWidth="644.0">
          <children>
-            <ImageView fitHeight="366.0" fitWidth="647.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="365.0" fitWidth="661.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Pokemon-UK-1.jpg" />
+                  <Image url="@../../rsc/Pokemon-UK-1.jpg" />
                </image>
             </ImageView>
             <Text layoutX="493.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver 1.0.0" wrappingWidth="66.0">
@@ -55,22 +55,22 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Button fx:id="btnMenuCaptura" cache="true" defaultButton="true" layoutX="286.0" layoutY="209.0" mnemonicParsing="false" onAction="#irACapturar" prefHeight="30.0" prefWidth="89.0" text="Capturar">
+            <Button fx:id="capturarBtn" cache="true" defaultButton="true" layoutX="286.0" layoutY="209.0" mnemonicParsing="false" onAction="#capturar" prefHeight="30.0" prefWidth="89.0" text="Capturar">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button defaultButton="true" layoutX="286.0" layoutY="245.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="PC">
+            <Button fx:id="pcBtn" defaultButton="true" layoutX="286.0" layoutY="245.0" mnemonicParsing="false" onAction="#computador" prefHeight="30.0" prefWidth="89.0" text="PC">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button defaultButton="true" layoutX="286.0" layoutY="281.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Descansar">
+            <Button fx:id="descansarBtn" defaultButton="true" layoutX="286.0" layoutY="281.0" mnemonicParsing="false" onAction="#descansar" prefHeight="30.0" prefWidth="89.0" text="Descansar">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button defaultButton="true" layoutX="286.0" layoutY="173.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Combate">
+            <Button fx:id="combateBtn" defaultButton="true" layoutX="286.0" layoutY="173.0" mnemonicParsing="false" onAction="#combatir" prefHeight="30.0" prefWidth="89.0" text="Combate">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -83,11 +83,6 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="145.0" fitWidth="369.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@VIR-2713-62-cual-es-tu-nivel-d-unscreen.gif" />
-               </image>
-            </ImageView>
             <Text layoutX="11.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -103,6 +98,11 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Text>
+            <ImageView fitHeight="126.0" fitWidth="326.0" layoutX="161.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../rsc/VIR-2713-62-cual-es-tu-nivel-d-unscreen.gif" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
