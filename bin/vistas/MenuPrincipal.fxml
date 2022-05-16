@@ -47,7 +47,7 @@
          <children>
             <ImageView fx:id="ivFoto" fitHeight="366.0" fitWidth="647.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Pokemon-UK-1.jpg" />
+                  <Image url="@../../Documents/ProyectoPokemon/rsc/Pokemon-UK-1.jpg" />
                </image>
             </ImageView>
             <Text layoutX="493.0" layoutY="138.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver 1.0.0" wrappingWidth="66.0">
@@ -85,7 +85,7 @@
             </Button>
             <ImageView fx:id="ivTitulo" fitHeight="145.0" fitWidth="369.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@VIR-2713-62-cual-es-tu-nivel-d-unscreen.gif" />
+                  <Image url="@../../Documents/ProyectoPokemon/rsc/VIR-2713-62-cual-es-tu-nivel-d-unscreen.gif" />
                </image>
             </ImageView>
             <Text layoutX="11.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by">
