@@ -19,6 +19,6 @@ public class Controllers implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        
+        System.out.println("polla");
     }
 }

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "src.modelos.App",
+            "projectName": "ProyectoPokemon_49495d29"
+        },
+        {
+            "type": "java",
             "name": "Launch MainLogTest",
             "request": "launch",
             "mainClass": "src.modelos.MainLogTest",
@@ -19,11 +26,11 @@
         },
         {
             "type": "java",
-            "name": "Launch App",
+            "name": "Launch Pokemon",
             "request": "launch",
             "mainClass": "src.modelos.App",
             "projectName": "ProyectoPokemon_c345daf8",
-            "vmArgs": "--module-path=C:/Users/josec/Downloads/openjfx-18.0.1_windows-x64_bin-sdk/javafx-sdk-18.0.1/lib --add-modules=javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path=C:/Users/Margarita/Desktop/javafx-sdk-17.0.2/lib --add-modules=javafx.controls,javafx.fxml"
         }
     ]
 }
