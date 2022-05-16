@@ -13,6 +13,7 @@ public class Controllers implements Initializable{
     @FXML
     private Button btnMenuCaptura;
 
+
     @FXML
     private void irACapturar(ActionEvent event){
         System.out.println("Capturar");
