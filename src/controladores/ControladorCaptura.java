@@ -1,15 +1,25 @@
 package src.controladores;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import src.modelos.Captura;
 import src.modelos.Entrenador;
 import src.modelos.Genero;
@@ -17,13 +27,45 @@ import src.modelos.Movimiento;
 import src.modelos.Pokemon;
 import src.modelos.Tipo;
 
-public class ControladorCaptura {
+import javafx.scene.Node;
+
+public class ControladorCaptura implements Initializable{
     
+    Pokemon salvaje;
+ 
+    Stage stage;
+	Scene scene;
+	Parent root;
+
+   /* public ControladorCaptura(Pokemon salvaje)
+    {
+        this.salvaje = new Pokemon(salvaje);
+
+        Image myImage = new Image(getClass().getResourceAsStream("../../rsc/VenusaurEspalda.gif"));
+        capturaImagePokemon.setImage(myImage);
+    }*/
+
     @FXML
     Button capturarBtn;
 
     @FXML
     Button huirBtn;
+
+    @FXML
+    ImageView capturaImagePokemon;
+
+   
+
+   
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    
 
     @FXML
     private void capturar(ActionEvent event) throws SQLException
@@ -36,7 +78,6 @@ public class ControladorCaptura {
 
 
         String usuario = "root";
-		String clave = "Ff/8475261238";
 		String url = "jdbc:mysql://localhost:3306/pokemon";
 		Connection con = DriverManager.getConnection(url, usuario, "");;
 		Statement stmt = con.createStatement();
@@ -78,14 +119,27 @@ public class ControladorCaptura {
         System.out.println("tras todo");
 
         boolean resultado = entrenador1.capturarPokemon(entrenador1.getPrimerPokemon());
+
+
         Pokemon miPokemon = entrenador1.getPrimerPokemon();
+
+      //  String direccion = "../../rsc/" +miPokemon.getNombre() +"Cara.gif";
+       // System.out.println(direccion);
+
+      //  rsc/VenusaurEspalda.gif
+
+       // Image myImage = new Image(getClass().getResourceAsStream(direccion));
+       // capturaImagePokemon.setImage(myImage);
 
         if(resultado)
         {
 
             System.out.println("dentro del if");
 
-            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 501
+            //TODO
+            // insertar codigo para que se incremente el idpokemon
+
+            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 569
                                 +","+ 1
                                 +","+ 3
                                 +",'" + miPokemon.getMote()
@@ -117,45 +171,28 @@ public class ControladorCaptura {
                 //TODO: handle exception
             }
         }
-        //MIERDAS
-        /*
-        String usuario = "root";
-		String clave = "Ff/8475261238";
-		String url = "jdbc:mysql://localhost:3306/pokemon";
-		Connection con = DriverManager.getConnection(url, usuario, "");;
-		Statement stmt = con.createStatement();
-		ResultSet rs;
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			System.out.println("hola");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			
-            //con = DriverManager.getConnection(url,usuario,clave);
-			//stmt = con.createStatement();
-			//stmt.executeUpdate("INSERT INTO city VALUES(10000,'CORVERA','ABW','CALLE JC1',123456)");
-			//stmt.executeUpdate("INSERT INTO city VALUES(18523,'SHIT','ABW','CALLE CESUR',123456)");
-			rs = stmt.executeQuery("SELECT * FROM entrenador" );
-			rs.next();
-			
-			do {
-				
-				System.out.println("ID: " + rs.getString("ID_ENTRENADOR") + " NOMBRE: " + rs.getString("NOMBRE") + " POKEDOLARES: " + rs.getString("POKEDOLARES"));
-				
-			}while(rs.next());
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    }
 
-        */
+    @FXML
+    private void huir(ActionEvent e) throws IOException
+    {
+        System.out.println("huyendo");
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/MenuPrincipal.fxml"));
+        System.out.println("cargando");
+			root = loader.load();	
+            System.out.println("cargado");
+			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+    }
+
+    public void setImagen(Image imagen)
+    {
+
+        capturaImagePokemon.setImage(imagen);
+
     }
 
 }

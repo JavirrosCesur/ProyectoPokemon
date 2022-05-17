@@ -78,6 +78,43 @@ public class Pokemon {
         this.habilidades = new ArrayList<Movimiento>();
     }
 
+    public Pokemon(Pokemon p){
+        this.nombre = p.nombre;
+        this.mote = p.nombre;
+        this.nivel = p.nivel;
+        this.experiencia = p.experiencia;
+        this.vitalidadMaxima = p.vitalidadMaxima;
+        this.vitalidadActual = p.vitalidadMaxima;
+        this.estaminaMaxima = p.estaminaMaxima;
+        this.estaminaActual = p.estaminaActual;
+        this.ataque = p.ataque;
+        this.ataqueMejora = p.ataque; // TODOS los atributos Mejora se igualan a los "originales".
+        this.defensa = p.defensa;
+        this.defensaMejora = p.defensaMejora;
+        this.ataqueEspecial = p.ataqueEspecial;
+        this.ataqueEspecialMejora = p.ataqueEspecialMejora;
+        this.defensaEspecial = p.defensaEspecial;
+        this.defensaEspecialMejora = p.defensaEspecialMejora;
+        this.velocidad = p.velocidad;
+        this.velocidadMejora = p.velocidadMejora;
+        this.fertilidad = p.fertilidad;
+        this.genero = p.genero;
+        this.tipo1 = p.tipo1;
+        this.tipo2 = p.tipo2;
+        this.estadoPrincipal = p.estadoPrincipal;
+        this.estadoSecundario = p.estadoSecundario;
+        this.contadorEstadoP = p.contadorEstadoP;
+        this.contadorEstadoS = p.contadorEstadoS;
+        this.mejora1 = p.mejora1;
+        this.mejora2 = p.mejora2;
+        this.contadorMejoraAtaque = p.contadorMejoraAtaque;
+        this.contadorMejoraDefensa = p.contadorMejoraDefensa;
+        this.contadorMejoraAtEspecial = p.contadorMejoraAtEspecial;
+        this.contadorMejoraDefEspecial = p.contadorMejoraDefEspecial;
+        this.contadorMejoraVelocidad = p.contadorMejoraVelocidad;
+        this.habilidades = new ArrayList<Movimiento>();
+    }
+
     public String getNombre() {
         return nombre;
     }

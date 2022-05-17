@@ -4,7 +4,14 @@ import javafx.fxml.Initializable;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +20,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import src.modelos.Genero;
+import src.modelos.Movimiento;
+import src.modelos.Pokemon;
+import src.modelos.Tipo;
 import javafx.scene.Node;
 
 public class MenuPrincipalController implements Initializable {
@@ -41,16 +53,50 @@ public class MenuPrincipalController implements Initializable {
     }
 
     @FXML
-    private void capturar(ActionEvent e) throws IOException
+    private void capturar(ActionEvent e) throws IOException, SQLException
     {
         System.out.println("capturando");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/VistaCaptura.fxml"));
-			
+        String usuario = "root";
+		String url = "jdbc:mysql://localhost:3306/pokemon";
+		Connection con = DriverManager.getConnection(url, usuario, "");;
+		Statement stmt = con.createStatement();
+        ResultSet rs2 = null;
+
+        try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException i) {
+			i.printStackTrace();
+		}
+
+        try {
+
+			rs2 = stmt.executeQuery("SELECT * FROM pokemon inner join pokedex ON pokemon.ID_POKEDEX = pokedex.ID_POKEDEX;");
+            rs2.next();
+            System.out.println(rs2.getString("NOMBRE"));
+		} catch (SQLException j) {
+			j.printStackTrace();
+		}
+
+            Pokemon mipokemon = new Pokemon(rs2.getString("NOMBRE"), rs2.getInt("VITALIDAD"), rs2.getInt("ATAQUE"), rs2.getInt("DEFENSA"), rs2.getInt("ATK_ESPECIAL"), rs2.getInt("DEF_ESPECIAL"), rs2.getInt("VELOCIDAD"),Genero.valueOf("HEMBRA"), Tipo.valueOf(rs2.getString("TIPO1")),Tipo.valueOf(rs2.getString("TIPO2")), new ArrayList<Movimiento>());
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/VistaCaptura.fxml"));
+            System.out.println("okis");
 			root = loader.load();	
+            System.out.println("okey");
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
+
+
+           ControladorCaptura controller = loader.getController();
+
+           String direccion = "../../rsc/" +mipokemon.getNombre() +"Cara.gif";
+           System.out.println(direccion);
+
+           Image myImage = new Image(getClass().getResourceAsStream(direccion));
+           controller.setImagen(myImage);
+
 			stage.show();
 
 
