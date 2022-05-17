@@ -69,12 +69,17 @@ public class MenuPrincipalController implements Initializable {
 			i.printStackTrace();
 		}
 
+        //de momento esta consulta solo pilla el primer pokemon para los ejemplos
+        //debe cojer un pokemon aleatorio de la lista por ejemplo
         try {
 			rs2 = stmt.executeQuery("SELECT * FROM pokemon inner join pokedex ON pokemon.ID_POKEDEX = pokedex.ID_POKEDEX;");
+            System.out.println(rs2.getFetchSize() + "tamaño de la movida");
             rs2.next();
 		} catch (SQLException j) {
 			j.printStackTrace();
 		}
+
+            
 
             Pokemon mipokemon = new Pokemon(rs2.getString("NOMBRE"), rs2.getInt("VITALIDAD"), rs2.getInt("ATAQUE"), rs2.getInt("DEFENSA"), rs2.getInt("ATK_ESPECIAL"), rs2.getInt("DEF_ESPECIAL"), rs2.getInt("VELOCIDAD"),Genero.valueOf("HEMBRA"), Tipo.valueOf(rs2.getString("TIPO1")),Tipo.valueOf(rs2.getString("TIPO2")), new ArrayList<Movimiento>());
 

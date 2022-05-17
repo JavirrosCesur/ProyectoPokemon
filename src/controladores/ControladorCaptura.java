@@ -68,7 +68,7 @@ public class ControladorCaptura implements Initializable{
     
 
     @FXML
-    private void capturar(ActionEvent event) throws SQLException
+    private void capturar(ActionEvent event) throws SQLException, IOException
     {
         System.out.println("tirando pokeball");
         Entrenador entrenador1;
@@ -114,12 +114,7 @@ public class ControladorCaptura implements Initializable{
 			e.printStackTrace();
 		}
         entrenador1 = new Entrenador(nombreEntrenador, equipo1, equipo2, equipo1.get(0));
-
-        //De momento el pokemon que se usa para la captura es el primero
-        //del entrenador
         boolean resultado = entrenador1.capturarPokemon(this.salvaje);
-
-       // Pokemon miPokemon = entrenador1.getPrimerPokemon();
 
         if(resultado)
         {
@@ -128,7 +123,13 @@ public class ControladorCaptura implements Initializable{
             //TODO
             // insertar codigo para que se incremente el idpokemon
 
-            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 569
+            
+            rs2 = stmt.executeQuery("SELECT MAX(ID_POKEMON) AS MAXIMO FROM pokemon;");
+            rs2.next();
+
+            int idPokemon =  rs2.getInt("MAXIMO") + 1;
+
+            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ idPokemon
                                 +","+ 1
                                 +","+ 3
                                 +",'" + salvaje.getMote()
@@ -152,11 +153,14 @@ public class ControladorCaptura implements Initializable{
                 statement2 = con.createStatement();
                 statement2.executeUpdate(sentencia);
                 System.out.println("pokemon insertado" + this.salvaje.getNombre());
+                this.huir(event);
 
             } catch (Exception e) {
                 //TODO: handle exception
             }
         }
+
+        
     }
 
     @FXML
