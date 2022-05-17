@@ -150,7 +150,5 @@ public class Combate {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
     }
-
 }

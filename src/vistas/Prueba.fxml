@@ -45,7 +45,7 @@
             <Button fx:id="btnFunciona" layoutX="294.0" layoutY="138.0" mnemonicParsing="false" onAction="#sysoFunciona" text="Funciona" />
             <ImageView fx:id="imgSnorlaxCara" fitHeight="120.0" fitWidth="136.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ProyectoPokemon/ProyectoPokemon/rsc/SnorlaxCara.gif" />
+                  <Image url="@C:\Users\josec\OneDrive\Escritorio\ProyectoPokemon\ProyectoPokemon\rsc\SnorlaxCara.gif" />
                </image>
             </ImageView>
          </children>
