@@ -70,10 +70,8 @@ public class MenuPrincipalController implements Initializable {
 		}
 
         try {
-
 			rs2 = stmt.executeQuery("SELECT * FROM pokemon inner join pokedex ON pokemon.ID_POKEDEX = pokedex.ID_POKEDEX;");
             rs2.next();
-            System.out.println(rs2.getString("NOMBRE"));
 		} catch (SQLException j) {
 			j.printStackTrace();
 		}
@@ -81,21 +79,14 @@ public class MenuPrincipalController implements Initializable {
             Pokemon mipokemon = new Pokemon(rs2.getString("NOMBRE"), rs2.getInt("VITALIDAD"), rs2.getInt("ATAQUE"), rs2.getInt("DEFENSA"), rs2.getInt("ATK_ESPECIAL"), rs2.getInt("DEF_ESPECIAL"), rs2.getInt("VELOCIDAD"),Genero.valueOf("HEMBRA"), Tipo.valueOf(rs2.getString("TIPO1")),Tipo.valueOf(rs2.getString("TIPO2")), new ArrayList<Movimiento>());
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/VistaCaptura.fxml"));
-            System.out.println("okis");
 			root = loader.load();	
-            System.out.println("okey");
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 
 
            ControladorCaptura controller = loader.getController();
-
-           String direccion = "../../rsc/" +mipokemon.getNombre() +"Cara.gif";
-           System.out.println(direccion);
-
-           Image myImage = new Image(getClass().getResourceAsStream(direccion));
-           controller.setImagen(myImage);
+           controller.setPokemon(mipokemon);
 
 			stage.show();
 

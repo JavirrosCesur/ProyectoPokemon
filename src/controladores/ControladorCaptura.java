@@ -71,7 +71,6 @@ public class ControladorCaptura implements Initializable{
     private void capturar(ActionEvent event) throws SQLException
     {
         System.out.println("tirando pokeball");
-       // Captura captura = new Captura();
         Entrenador entrenador1;
         ArrayList<Pokemon> equipo1 = new ArrayList<>();
         ArrayList<Pokemon> equipo2 = new ArrayList<>();
@@ -81,7 +80,6 @@ public class ControladorCaptura implements Initializable{
 		String url = "jdbc:mysql://localhost:3306/pokemon";
 		Connection con = DriverManager.getConnection(url, usuario, "");;
 		Statement stmt = con.createStatement();
-		//ResultSet rs;
         ResultSet rs2;
         String nombreEntrenador = "";
 		
@@ -116,24 +114,15 @@ public class ControladorCaptura implements Initializable{
 			e.printStackTrace();
 		}
         entrenador1 = new Entrenador(nombreEntrenador, equipo1, equipo2, equipo1.get(0));
-        System.out.println("tras todo");
 
-        boolean resultado = entrenador1.capturarPokemon(entrenador1.getPrimerPokemon());
+        //De momento el pokemon que se usa para la captura es el primero
+        //del entrenador
+        boolean resultado = entrenador1.capturarPokemon(this.salvaje);
 
-
-        Pokemon miPokemon = entrenador1.getPrimerPokemon();
-
-      //  String direccion = "../../rsc/" +miPokemon.getNombre() +"Cara.gif";
-       // System.out.println(direccion);
-
-      //  rsc/VenusaurEspalda.gif
-
-       // Image myImage = new Image(getClass().getResourceAsStream(direccion));
-       // capturaImagePokemon.setImage(myImage);
+       // Pokemon miPokemon = entrenador1.getPrimerPokemon();
 
         if(resultado)
         {
-
             System.out.println("dentro del if");
 
             //TODO
@@ -142,15 +131,15 @@ public class ControladorCaptura implements Initializable{
             String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 569
                                 +","+ 1
                                 +","+ 3
-                                +",'" + miPokemon.getMote()
-                                +"'," + miPokemon.getVitalidadMaxima()
-                                +"," + miPokemon.getAtaque()
-                                +"," + miPokemon.getDefensa()
-                                +"," + miPokemon.getAtaqueEspecial()
-                                +"," + miPokemon.getDefensaEspecial()
-                                +"," + miPokemon.getVelocidad()
-                                +"," + miPokemon.getEstaminaMaxima()
-                                +"," + miPokemon.getNivel()
+                                +",'" + salvaje.getMote()
+                                +"'," + salvaje.getVitalidadMaxima()
+                                +"," + salvaje.getAtaque()
+                                +"," + salvaje.getDefensa()
+                                +"," + salvaje.getAtaqueEspecial()
+                                +"," + salvaje.getDefensaEspecial()
+                                +"," + salvaje.getVelocidad()
+                                +"," + salvaje.getEstaminaMaxima()
+                                +"," + salvaje.getNivel()
                                 +"," + 1
                                 +")"; 
 
@@ -160,12 +149,9 @@ public class ControladorCaptura implements Initializable{
             System.out.println(sentencia);
 
             try {
-                System.out.println("dentro del try");
                 statement2 = con.createStatement();
-                System.out.println("------");
                 statement2.executeUpdate(sentencia);
-                System.out.println("detras de la ejecucion de la sentencia");
-                System.out.println("pokemon insertado" + miPokemon.getNombre());
+                System.out.println("pokemon insertado" + this.salvaje.getNombre());
 
             } catch (Exception e) {
                 //TODO: handle exception
@@ -176,23 +162,22 @@ public class ControladorCaptura implements Initializable{
     @FXML
     private void huir(ActionEvent e) throws IOException
     {
-        System.out.println("huyendo");
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/MenuPrincipal.fxml"));
-        System.out.println("cargando");
 			root = loader.load();	
-            System.out.println("cargado");
 			stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
     }
 
-    public void setImagen(Image imagen)
+    public void setPokemon(Pokemon pokemon)
     {
+        this.salvaje = pokemon;
+        String direccion = "../../rsc/" +pokemon.getNombre() +"Cara.gif";
+        System.out.println(direccion + "a ver loco");
 
-        capturaImagePokemon.setImage(imagen);
-
+        Image myImage = new Image(getClass().getResourceAsStream(direccion));
+        capturaImagePokemon.setImage(myImage);
     }
 
 }
