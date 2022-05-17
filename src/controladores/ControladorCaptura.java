@@ -29,7 +29,7 @@ public class ControladorCaptura {
     private void capturar(ActionEvent event) throws SQLException
     {
         System.out.println("tirando pokeball");
-        Captura captura = new Captura();
+       // Captura captura = new Captura();
         Entrenador entrenador1;
         ArrayList<Pokemon> equipo1 = new ArrayList<>();
         ArrayList<Pokemon> equipo2 = new ArrayList<>();
@@ -85,9 +85,9 @@ public class ControladorCaptura {
 
             System.out.println("dentro del if");
 
-            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 500
+            String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ 501
                                 +","+ 1
-                                +","+ 6
+                                +","+ 3
                                 +",'" + miPokemon.getMote()
                                 +"'," + miPokemon.getVitalidadMaxima()
                                 +"," + miPokemon.getAtaque()
