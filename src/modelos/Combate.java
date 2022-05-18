@@ -1,4 +1,4 @@
-package src.modelos;
+package modelos;
 
 import java.io.BufferedWriter;
 import java.io.File;

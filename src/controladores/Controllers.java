@@ -1,4 +1,4 @@
-package src.controladores;
+package controladores;
 
 public class Controllers {
     
