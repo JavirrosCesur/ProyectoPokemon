@@ -62,19 +62,25 @@ public class MenuPrincipalController implements Initializable {
 		Connection con = DriverManager.getConnection(url, usuario, "");;
 		Statement stmt = con.createStatement();
         ResultSet rs2 = null;
+        ResultSet rs =null;
 
         try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException i) {
 			i.printStackTrace();
 		}
-
-        //de momento esta consulta solo pilla el primer pokemon para los ejemplos
-        //debe cojer un pokemon aleatorio de la lista por ejemplo
         try {
-			rs2 = stmt.executeQuery("SELECT * FROM pokemon inner join pokedex ON pokemon.ID_POKEDEX = pokedex.ID_POKEDEX;");
-            System.out.println(rs2.getFetchSize() + "tamaño de la movida");
-            rs2.next();
+            rs = stmt.executeQuery("SELECT COUNT(ID_POKEMON) FROM pokemon;");
+            rs.next();
+            int cantidad = rs.getInt(1);
+
+            int numero = (int)(Math.random()*(cantidad-1+1)+1);
+
+            rs2 = stmt.executeQuery("SELECT * FROM pokemon inner join pokedex ON pokemon.ID_POKEDEX = pokedex.ID_POKEDEX;");
+            for (int i = 1; i <= numero; i++)
+            {
+                rs2.next();
+            }   
 		} catch (SQLException j) {
 			j.printStackTrace();
 		}

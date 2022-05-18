@@ -78,7 +78,7 @@ public class ControladorCaptura implements Initializable{
 
         String usuario = "root";
 		String url = "jdbc:mysql://localhost:3306/pokemon";
-		Connection con = DriverManager.getConnection(url, usuario, "");;
+		Connection con = DriverManager.getConnection(url, usuario, "");
 		Statement stmt = con.createStatement();
         ResultSet rs2;
         String nombreEntrenador = "";
@@ -132,7 +132,7 @@ public class ControladorCaptura implements Initializable{
             String sentencia = "INSERT INTO POKEMON (ID_POKEMON, ID_ENTRENADOR, ID_POKEDEX, MOTE, VITALIDAD, ATAQUE, DEFENSA, ATK_ESPECIAL, DEF_ESPECIAL, VELOCIDAD, ESTAMINA, NIVEL, ID_EQUIPO) VALUES("+ idPokemon
                                 +","+ 1
                                 +","+ 3
-                                +",'" + salvaje.getMote()
+                                +",'" + salvaje.getNombre()
                                 +"'," + salvaje.getVitalidadMaxima()
                                 +"," + salvaje.getAtaque()
                                 +"," + salvaje.getDefensa()
