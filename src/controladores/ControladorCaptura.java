@@ -1,5 +1,6 @@
 package src.controladores;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -9,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +19,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import src.modelos.Captura;
 import src.modelos.Entrenador;
@@ -53,18 +57,19 @@ public class ControladorCaptura implements Initializable{
 
     @FXML
     ImageView capturaImagePokemon;
-
+  
    
-
-   
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // TODO Auto-generated method stub
-        
+   // playAudio();
+       
     }
 
-
+   /* public void playAudio()
+    {
+        AudioClip audio = new AudioClip(this.getClass().getResource("../../rsc/CancionCaptura.mp3").toString());
+        audio.play();
+    }*/
     
 
     @FXML
