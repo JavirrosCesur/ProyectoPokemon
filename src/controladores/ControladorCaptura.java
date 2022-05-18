@@ -16,7 +16,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
@@ -101,19 +103,14 @@ public class ControladorCaptura implements Initializable{
             nombreEntrenador = rs2.getString("NOMBRE_ENTRENADOR");
 
             do {
-                System.out.println("principio");
 				Pokemon pokemon = new Pokemon(rs2.getString("NOMBRE"), rs2.getInt("VITALIDAD"), rs2.getInt("ATAQUE"), rs2.getInt("DEFENSA"), rs2.getInt("ATK_ESPECIAL"), rs2.getInt("DEF_ESPECIAL"), rs2.getInt("VELOCIDAD"),Genero.valueOf("HEMBRA"), Tipo.valueOf(rs2.getString("TIPO1")),Tipo.valueOf(rs2.getString("TIPO2")), new ArrayList<Movimiento>());
 
                 if(rs2.getInt("ID_EQUIPO") == 1)
                     equipo1.add(pokemon);
                 else
                     equipo2.add(pokemon);
-                    System.out.println("fin");
 
 			}while(rs2.next());
-
-            System.out.println("tras el do while");
-
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -158,6 +155,10 @@ public class ControladorCaptura implements Initializable{
                 statement2 = con.createStatement();
                 statement2.executeUpdate(sentencia);
                 System.out.println("pokemon insertado" + this.salvaje.getNombre());
+                Alert alert = new Alert(AlertType.INFORMATION);
+		        alert.setTitle("Pokemon capturado");
+		        alert.setHeaderText("Has capturado al pokemon con exito");
+		        alert.showAndWait();
                 this.huir(event);
 
             } catch (Exception e) {

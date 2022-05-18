@@ -16,11 +16,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+//import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import src.modelos.Genero;
 import src.modelos.Movimiento;
@@ -42,7 +42,9 @@ public class MenuPrincipalController implements Initializable {
     Button pcBtn;
     @FXML
     Button descansarBtn;
-    
+    @FXML
+    Button salirButton;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     }
@@ -50,6 +52,11 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void combatir(ActionEvent event){
         System.out.println("¡combatiendo!");
+    }
+
+    @FXML
+    private void salir(ActionEvent event){
+       System.exit(0);
     }
 
     @FXML

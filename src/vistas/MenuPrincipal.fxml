@@ -78,7 +78,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button layoutX="567.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" text="Salir">
+            <Button fx:id="salirBtn" layoutX="567.0" layoutY="320.0" mnemonicParsing="false" onAction="#salir" prefHeight="30.0" prefWidth="66.0" text="Salir">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
