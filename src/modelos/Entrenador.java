@@ -178,11 +178,74 @@ public class Entrenador {
         return "Tu equipo esta fresco como una rosa.";
     }
 
-    public boolean entrenarPokemon(int numPokemon, int cantidadPokeDollars){
+    public boolean entrenarPokemon(int tipoEntrenamiento, int numPokemon){
+    
+        if(tipoEntrenamiento == 1){
+            System.out.println("Has elegido el entrenamiento Pesado.");
+
+            if(this.getPokedollar() < this.getEquipo().get(numPokemon).getNivel() * 20){
+                System.out.println("¡No tienes suficiente dinero!");
+                return false;
+            }
+            else{
+                this.getEquipo().get(numPokemon).setDefensa(getEquipo().get(numPokemon).getDefensa() + 3);
+                this.getEquipo().get(numPokemon).setDefensaEspecial(getEquipo().get(numPokemon).getDefensaEspecial() + 3);
+                this.getEquipo().get(numPokemon).setVitalidadMaxima(getEquipo().get(numPokemon).getVitalidadMaxima() + 3);
+                System.out.println("El entrenamiento se ha realizado con exito.");
+                return true;
+            }
+        }
+        else if(tipoEntrenamiento == 2){
+            System.out.println("Has elegido el entrenamiento Furioso");
+
+            if(this.getPokedollar() < this.getEquipo().get(numPokemon).getNivel() * 30){
+                System.out.println("¡No tienes suficiente dinero!");
+                return false;
+            }
+            else{
+                this.getEquipo().get(numPokemon).setAtaque(getEquipo().get(numPokemon).getAtaque() + 3);
+                this.getEquipo().get(numPokemon).setAtaqueEspecial(getEquipo().get(numPokemon).getAtaqueEspecial() + 3);
+                this.getEquipo().get(numPokemon).setVelocidad(getEquipo().get(numPokemon).getVelocidad() + 3);
+                System.out.println("El entrenamiento se ha realizado con exito.");
+                return true;
+            }
+        }
+        else if(tipoEntrenamiento == 3){
+            System.out.println("Has elegido el entrenameinto Funcional");
+
+            if(this.getPokedollar() < this.getEquipo().get(numPokemon).getNivel() * 40){
+                System.out.println("¡No tienes suficiente dinero!");
+                return false;
+            }
+            else{
+                this.getEquipo().get(numPokemon).setVelocidad(this.getEquipo().get(numPokemon).getVelocidad() + 3);
+                this.getEquipo().get(numPokemon).setAtaque(this.getEquipo().get(numPokemon).getAtaque() + 3);
+                this.getEquipo().get(numPokemon).setDefensa(this.getEquipo().get(numPokemon).getDefensa() + 3);
+                this.getEquipo().get(numPokemon).setVitalidadMaxima(this.getEquipo().get(numPokemon).getVitalidadMaxima() + 3);
+                System.out.println("El entrenamiento se ha realizdo con exito.");
+                return true;
+            }
+        }
+        else if(tipoEntrenamiento == 4){
+            if(this.getPokedollar() < this.getEquipo().get(numPokemon).getNivel() * 40){
+                System.out.println("¡No tienes suficiente dinero!");
+                return false;
+            }
+            else{
+                this.getEquipo().get(numPokemon).setVelocidad(this.getEquipo().get(numPokemon).getVelocidad() + 3);
+                this.getEquipo().get(numPokemon).setAtaqueEspecial(this.getEquipo().get(numPokemon).getAtaqueEspecial() + 3);
+                this.getEquipo().get(numPokemon).setDefensaEspecial(this.getEquipo().get(numPokemon).getDefensaEspecial() + 3);
+                this.getEquipo().get(numPokemon).setVitalidadMaxima(this.getEquipo().get(numPokemon).getVitalidadMaxima() + 3);
+                System.out.println("El entrenamiento se ha realizdo con exito.");
+                return true;
+            }
+        }
         return false;
     }
 
-    public boolean criarPokemon(int pokemonUno, int pokemonDos){
-        return false;
-    }
+    //public boolean criarPokemon(int pokemonUno, int pokemonDos){
+        
+        //Pokemon cria = new
+
+    
 }
