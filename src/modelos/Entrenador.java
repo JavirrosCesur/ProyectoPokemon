@@ -243,9 +243,40 @@ public class Entrenador {
         return false;
     }
 
-    //public boolean criarPokemon(int pokemonUno, int pokemonDos){
+    public boolean criarPokemon(int pokemonUno, int pokemonDos){
         
-        //Pokemon cria = new
 
-    
+        //Pokemon cria = new Pokemon();
+        
+        String nombreCria;
+        String moteCria = " ";
+        int nivelCria = 1;
+        int experienciaCria = nivelCria * 50;
+        int vitalidadCria;
+        int staminaCria;
+        int ataqueFCria;
+        int defensaFCria;
+        int ataqueECria;
+        int defensaECria;
+        int velocidad;
+        int fertilidadCria = 5;
+        Genero generoCria;
+        Tipo tipo1Cria;
+        Tipo tipo2Cria;
+        EstadoPrincipal estadoCria;
+        int contadorEstadoCria;
+        Mejora mejora1Cria;
+        Mejora mejora2Cria;
+        int contadorMejoraAtaque;
+        int contadorMejoraDefensa;
+        int contadorMejoraAtEspecial;
+        int contadorMejoraDefEspecial;
+        int contadorMejoraVelocidad;
+        ArrayList<Movimiento> habilidades;
+        return false;
+
+
+    }
+        
+        
 }
