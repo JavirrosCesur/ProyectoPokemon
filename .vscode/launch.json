@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TesteoKbrn",
+            "request": "launch",
+            "mainClass": "src.modelos.TesteoKbrn",
+            "projectName": "ProyectoPokemon_c345daf8"
+        },
+        {
+            "type": "java",
             "name": "Launch MainLogTest",
             "request": "launch",
             "mainClass": "src.modelos.MainLogTest",

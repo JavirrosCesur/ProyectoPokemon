@@ -33,21 +33,15 @@
 -->
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controladores.Controllers">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controladores.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="btnFunciona" layoutX="294.0" layoutY="138.0" mnemonicParsing="false" onAction="#sysoFunciona" text="Funciona" />
-            <ImageView fx:id="imgSnorlaxCara" fitHeight="120.0" fitWidth="136.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@..\..\rsc\VolcanionCara.gif" />
-               </image>
-            </ImageView>
+            <Button fx:id="btnCapturarMP" layoutX="288.0" layoutY="267.0" mnemonicParsing="false" onAction="#goToVistaCaptura" text="Capturar" />
+            <Button fx:id="btnSalirMP" layoutX="299.0" layoutY="315.0" mnemonicParsing="false" onAction="#finishAll" text="Salir" />
          </children>
     </AnchorPane>
   </children>

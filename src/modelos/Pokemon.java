@@ -27,9 +27,7 @@ public class Pokemon {
     private Tipo tipo1;
     private Tipo tipo2;
     private EstadoPrincipal estadoPrincipal;
-    private EstadoSecundario estadoSecundario;
     private int contadorEstadoP;
-    private int contadorEstadoS;
     private Mejora mejora1;
     private Mejora mejora2;
     private int contadorMejoraAtaque;
@@ -39,16 +37,15 @@ public class Pokemon {
     private int contadorMejoraVelocidad;
     private ArrayList<Movimiento> habilidades;
 
-    public Pokemon(String nombre, String mote, int experiencia, int vitalidadMaxima, int estaminaMaxima, int ataque, int defensa, 
-    int ataqueEspecial, int defensaEspecial, int velocidad, Genero genero, Tipo tipo1, Tipo tipo2, 
-    ArrayList<Movimiento> habilidades){
+    public Pokemon(String nombre, int vitalidadMaxima, int ataque, int defensa, 
+    int ataqueEspecial, int defensaEspecial, int velocidad, Tipo tipo1, Tipo tipo2){
         this.nombre = nombre;
-        this.mote = mote;
+        this.mote = new String();
         this.nivel = 1;
-        this.experiencia = experiencia;
+        this.experiencia = 0;
         this.vitalidadMaxima = vitalidadMaxima;
         this.vitalidadActual = vitalidadMaxima;
-        this.estaminaMaxima = estaminaMaxima;
+        this.estaminaMaxima = 100;
         this.estaminaActual = estaminaMaxima;
         this.ataque = ataque;
         this.ataqueMejora = this.ataque; // TODOS los atributos Mejora se igualan a los "originales".
@@ -61,13 +58,11 @@ public class Pokemon {
         this.velocidad = velocidad;
         this.velocidadMejora = this.velocidad;
         this.fertilidad = 5;
-        this.genero = genero;
+        this.genero = this.iniciarGenero();
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.estadoPrincipal = EstadoPrincipal.NINGUNO;
-        this.estadoSecundario = EstadoSecundario.NINGUNO;
         this.contadorEstadoP = 0;
-        this.contadorEstadoS = 0;
         this.mejora1 = Mejora.NINGUNO;
         this.mejora2 = Mejora.NINGUNO;
         this.contadorMejoraAtaque = 0;
@@ -157,15 +152,10 @@ public class Pokemon {
         return estadoPrincipal;
     }
 
-    public EstadoSecundario getEstadoSecundario() {
-        return estadoSecundario;
-    }
     public int getContadorEstadoP() {
         return contadorEstadoP;
     }
-    public int getContadorEstadoS() {
-        return contadorEstadoS;
-    }
+
     public Mejora getMejora1() {
         return mejora1;
     }
@@ -311,6 +301,16 @@ public class Pokemon {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
+
+    public Genero iniciarGenero() { // Para el constructor.
+        int randomGen = (int)(Math.random()*2);
+        if (randomGen == 0) {
+            return Genero.HEMBRA;
+        }else {
+            return Genero.MACHO;
+        }
+    }
+
     public void setTipo1(Tipo tipo1) {
         this.tipo1 = tipo1;
     }
@@ -323,15 +323,10 @@ public class Pokemon {
         this.estadoPrincipal = estadoPrincipal;
     }
 
-    public void setEstadoSecundario(EstadoSecundario estadoSecundario) {
-        this.estadoSecundario = estadoSecundario;
-    }
     public void setContadorEstadoP(int contadorEstadoP) {
         this.contadorEstadoP = contadorEstadoP;
     }
-    public void setContadorEstadoS(int contadorEstadoS) {
-        this.contadorEstadoS = contadorEstadoS;
-    }
+
     public void setMejora1(Mejora mejora1) {
         this.mejora1 = mejora1;
     }
@@ -805,18 +800,9 @@ public class Pokemon {
         || pokemon.getTipo2() == Tipo.FUEGO){
             // No afecta, syso.
 
-        }else if(habilidad.getEstadoSecundario() == EstadoSecundario.ENAMORADO && (this.getGenero().equals(pokemon.getGenero())
-        && this.getNombre() != pokemon.getNombre())){
-            // No afecta, syso.
-
         }else{
-            if(habilidad.getEstadoPrincipal() == EstadoPrincipal.NINGUNO){
-                pokemon.setEstadoSecundario(habilidad.getEstadoSecundario());
-                pokemon.setContadorEstadoS(habilidad.getDuracion());
-            }else {
                 pokemon.setEstadoPrincipal(habilidad.getEstadoPrincipal());
                 pokemon.setContadorEstadoP(habilidad.getDuracion());
-            }
         }
     }
 

@@ -6,5 +6,6 @@ public enum EstadoPrincipal {
     ENVENENADO,
     PARALIZADO,
     QUEMADO,
+    CONFUSO,
     NINGUNO
 }

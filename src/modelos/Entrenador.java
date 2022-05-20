@@ -178,7 +178,23 @@ public class Entrenador {
         return "Tu equipo esta fresco como una rosa.";
     }
 
-    public boolean entrenarPokemon(int numPokemon, int cantidadPokeDollars){
+    // pesado, furioso, noseque, onirico.
+
+    public boolean entrenarPokemon(int tipoEntrenamiento, int numPokemon){
+        if(tipoEntrenamiento == 0) { // 0 para pesado.
+            if(this.getPokedollar() < this.getEquipo().get(numPokemon).getNivel() * 20) {
+                System.out.println("No tienes suficiente dinero");
+                return false;
+            }else {
+                this.getEquipo().get(numPokemon).setDefensa(this.getEquipo().get(numPokemon).getDefensa() + 3);
+                //def_especial
+                //vitalidad
+                this.setPokedollar(this.pokedollar - this.getEquipo().get(numPokemon).getNivel() * 20);
+                return true;
+            }
+        }else if(tipoEntrenamiento == 1) {// 1 para furioso... etc...
+                // AQUI REPITES LO DE ANTES PERO CON LA FORMULA CORRESPONDIENTE.
+        }
         return false;
     }
 
