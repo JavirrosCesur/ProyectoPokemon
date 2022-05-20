@@ -78,6 +78,10 @@ public class Pokemon {
         this.habilidades = new ArrayList<Movimiento>();
     }
 
+    public Pokemon(){
+        
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -243,10 +243,10 @@ public class Entrenador {
         return false;
     }
 
-    public boolean criarPokemon(int pokemonUno, int pokemonDos){
+    public boolean criarPokemon(Pokemon pokemonUno, int pokemonDos){
         
 
-        //Pokemon cria = new Pokemon();
+        Pokemon cria = new Pokemon();
         
         String nombreCria;
         String moteCria = " ";
@@ -273,9 +273,16 @@ public class Entrenador {
         int contadorMejoraDefEspecial;
         int contadorMejoraVelocidad;
         ArrayList<Movimiento> habilidades;
+
+        //if (pokemonUno.getTipo1() == pokemonDos .getTipo1()){
+
+       // }
+
+
+
+
+
         return false;
-
-
     }
         
         
