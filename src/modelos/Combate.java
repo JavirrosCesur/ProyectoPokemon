@@ -15,6 +15,7 @@ public class Combate {
     private int koRival;
     private Entrenador ganador;
     private Entrenador perdedor;
+    private int cuantosTurnos;
     private static int contadorCombates = 0;
     public static String PATH = "./log/combate" + contadorCombates + ".log";
 
@@ -28,6 +29,7 @@ public class Combate {
         this.koRival = 0;
         this.ganador = null;
         this.perdedor = null;
+        this.cuantosTurnos = 0;
     }
 
     public ArrayList<Turno> getTurnos() {
@@ -62,6 +64,10 @@ public class Combate {
         return contadorCombates;
     }
 
+    public int getCuantosTurnos() {
+        return cuantosTurnos;
+    }
+
     public void setTurnos(ArrayList<Turno> turnos) {
         this.turnos = turnos;
     }
@@ -90,6 +96,10 @@ public class Combate {
         this.perdedor = perdedor;
     }
 
+    public void setCuantosTurnos(int cuantosTurnos) {
+        this.cuantosTurnos = cuantosTurnos;
+    }
+
     public void addContadorCombates(){
         contadorCombates++;
     }
@@ -103,27 +113,34 @@ public class Combate {
         "Accion de " + rival.getNombre() + ": "));
     }
 
-    public void koPokemon(){
-        if(this.jugador.getPrimerPokemon().getVitalidadActual() <= 0){
-            this.koRival++;
-        }
-        else if(this.rival.getPrimerPokemon().getVitalidadActual() <= 0){
-            this.koJugador++;
+    public void koPokemonJ(){
+        if(this.getJugador().getPrimerPokemon().getVitalidadActual() <= 0){
+            this.setKoRival(this.getKoRival() + 1);
         }
     }
 
-    public void checkGanador() {
-        if (this.getKoJugador() == 4) {
+    public void koPokemonR(){
+        if(this.getRival().getPrimerPokemon().getVitalidadActual() <= 0){
+            this.setKoJugador(this.getKoJugador() + 1);
+        }
+    }
+
+    public boolean checkGanador() {
+        if (this.getKoJugador() == this.getJugador().getEquipo().size()) {
             this.setGanador(this.getJugador());
             this.setPerdedor(this.getRival());
             System.out.println("¡Has ganado el combate!");
             this.getGanador().setPokedollar(this.getGanador().getPokedollar() + (this.getPerdedor().getPokedollar() / 3) * 2);
+            return true;
 
-        } else if (this.getKoRival() == 4) {
+        } else if (this.getKoRival() == this.getJugador().getEquipo().size()) {
             this.setGanador(this.getRival());
             this.setPerdedor(this.getGanador());
             System.out.println("¡" + this.getRival().getNombre() + " ha ganado el combate!");
             this.getPerdedor().setPokedollar(this.getPerdedor().getPokedollar() / 3);
+            return true;
+        } else {
+            return false;
         }
 
     }
@@ -143,8 +160,8 @@ public class Combate {
 
             for (Turno turno : turnos) {
                 bw.write("Turno " + turno.getNumeroTurno() + ":\n" +
-                "Jugador: " + turno.getAccionJugador() + ".\n" + 
-                "Rival: " + turno.getAccionRival() + ".\n\n");
+                "- Jugador\n" + turno.getAccionJugador() + ".\n" + 
+                "- Rival:\n" + turno.getAccionRival() + ".\n\n");
             }
             bw.close();
         } catch (IOException e) {

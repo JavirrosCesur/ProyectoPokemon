@@ -23,7 +23,6 @@ public class Turno {
     public String getAccionRival() {
         return accionRival;
     }
-
     public static int getContadorTurnos() {
         return contadorTurnos;
     }

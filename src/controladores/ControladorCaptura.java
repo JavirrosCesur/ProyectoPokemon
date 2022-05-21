@@ -113,7 +113,7 @@ public class ControladorCaptura implements Initializable{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-        entrenador1 = new Entrenador(nombreEntrenador, equipo1, equipo2, equipo1.get(0));
+        entrenador1 = new Entrenador(nombreEntrenador, equipo1, equipo1.get(0));
         boolean resultado = entrenador1.capturarPokemon(this.salvaje);
 
         if(resultado)

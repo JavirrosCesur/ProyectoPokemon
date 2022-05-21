@@ -76,34 +76,27 @@ public class Pokemon {
     public String getNombre() {
         return nombre;
     }
-
     public String getMote() {
         return mote;
     }
-
     public int getNivel() {
         return nivel;
     }
-
     public int getExperiencia() {
         return experiencia;
     }
     public int getVitalidadMaxima() {
         return vitalidadMaxima;
     }
-
     public int getVitalidadActual() {
         return vitalidadActual;
     }
-
     public int getEstaminaMaxima() {
         return estaminaMaxima;
     }
-
     public int getEstaminaActual() {
         return estaminaActual;
     }
-
     public int getAtaque() {
         return ataque;
     }
@@ -143,23 +136,18 @@ public class Pokemon {
     public Tipo getTipo1() {
         return tipo1;
     }
-
     public Tipo getTipo2() {
         return tipo2;
     }
-
     public EstadoPrincipal getEstadoPrincipal() {
         return estadoPrincipal;
     }
-
     public int getContadorEstadoP() {
         return contadorEstadoP;
     }
-
     public Mejora getMejora1() {
         return mejora1;
     }
-
     public Mejora getMejora2() {
         return mejora2;
     }
@@ -185,36 +173,49 @@ public class Pokemon {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public void setMote(String mote) {
         this.mote = mote;
+    }
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 
     /* Métodos necesarios para subir a un POKEMON rival al nivel del nuestro, si es nivel 2 o superior, aumentando
     los valores de atributo aleatorios tantas veces como niveles tenga el POKEMON.*/
     public int subirVitalidad(int nivel){
         int sumaVitalidad = 0;
-        for (int i = 2; i <= nivel; i++) {
-            sumaVitalidad += (int) (Math.random() * 3 + 3);
+        if(nivel == 1){
+            sumaVitalidad = 0;
+        }else{
+            for (int i = 2; i <= nivel; i++) {
+                sumaVitalidad += (int) (Math.random() * 3 + 3);
+            }
         }
         return sumaVitalidad;
     }
-
     public int subirEstamina(int nivel) {
         int sumaEstamina = 0;
-        for (int i = 2; i <= nivel; i++) {
-            sumaEstamina += (int) (Math.random() * 3 + 1);
+        if(nivel == 1){
+            sumaEstamina = 0;
+        }else {
+            for (int i = 2; i <= nivel; i++) {
+                sumaEstamina += (int) (Math.random() * 3 + 1);
+            }
         }
         return sumaEstamina;
     }
-
     public int subirAtributos(int nivel) {
         int sumaAtributos = 0;
-        for (int i = 2; i <= nivel; i++) {
-            sumaAtributos += (int) (Math.random() * 4 + 1);
+        if(nivel == 1){
+            sumaAtributos = 0;
+        }else {
+            for (int i = 2; i <= nivel; i++) {
+                sumaAtributos += (int) (Math.random() * 4 + 1);
+            }
         }
         return sumaAtributos;
     }
+
     // Método nivelarNivel, en el que introducimos los métodos anteriores, resultando los valores finales.
     public void nivelarNivel(int nivel){
         this.setVitalidadMaxima(this.vitalidadMaxima + this.subirVitalidad(nivel));
@@ -228,7 +229,7 @@ public class Pokemon {
 
     /* Método setNivel implementando los métodos anteriores comentados y dando un valor válido a la experiencia.
     Sólo se usará en Pokemon salvajes o de Entrenadores rivales... o para hacer trampa.*/
-    public void setNivel(int nivel) {
+    public void subirNivel(int nivel) {
         this.setNivel(nivel);
         this.nivelarNivel(nivel);
         this.setExperiencia(((this.nivel - 1) * 10) + 1);
@@ -262,7 +263,6 @@ public class Pokemon {
     public void setAtaqueMejora(int ataqueMejora) {
         this.ataqueMejora = ataqueMejora;
     }
-
     public void setDefensa(int defensa) {
         this.defensa = defensa;
         this.defensaMejora = this.defensa;
@@ -270,7 +270,6 @@ public class Pokemon {
     public void setDefensaMejora(int defensaMejora) {
         this.defensaMejora = defensaMejora;
     }
-
     public void setAtaqueEspecial(int ataqueEspecial) {
         this.ataqueEspecial = ataqueEspecial;
         this.ataqueEspecialMejora = this.ataqueEspecial;
@@ -278,7 +277,6 @@ public class Pokemon {
     public void setAtaqueEspecialMejora(int ataqueEspecialMejora) {
         this.ataqueEspecialMejora = ataqueEspecialMejora;
     }
-
     public void setDefensaEspecial(int defensaEspecial) {
         this.defensaEspecial = defensaEspecial;
         this.defensaEspecialMejora = this.defensaEspecial;
@@ -286,7 +284,6 @@ public class Pokemon {
     public void setDefensaEspecialMejora(int defensaEspecialMejora) {
         this.defensaEspecialMejora = defensaEspecialMejora;
     }
-
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
         this.velocidadMejora = this.velocidad;
@@ -294,7 +291,6 @@ public class Pokemon {
     public void setVelocidadMejora(int velocidadMejora) {
         this.velocidadMejora = velocidadMejora;
     }
-
     public void setFertilidad(int fertilidad) {
         this.fertilidad = fertilidad;
     }
@@ -314,23 +310,18 @@ public class Pokemon {
     public void setTipo1(Tipo tipo1) {
         this.tipo1 = tipo1;
     }
-
     public void setTipo2(Tipo tipo2) {
         this.tipo2 = tipo2;
     }
-
     public void setEstadoPrincipal(EstadoPrincipal estadoPrincipal) {
         this.estadoPrincipal = estadoPrincipal;
     }
-
     public void setContadorEstadoP(int contadorEstadoP) {
         this.contadorEstadoP = contadorEstadoP;
     }
-
     public void setMejora1(Mejora mejora1) {
         this.mejora1 = mejora1;
     }
-
     public void setMejora2(Mejora mejora2) {
         this.mejora2 = mejora2;
     }
@@ -351,6 +342,16 @@ public class Pokemon {
     }
     public void setHabilidades(ArrayList<Movimiento> habilidades) {
         this.habilidades = habilidades;
+    }
+
+    // toString de Pokemon para enseñarlo en el equipo.
+    @Override
+    public String toString() {
+        return this.getMote() + ": " + this.getNombre() + " " + this.getGenero().toString().toLowerCase() + 
+        " de nivel " + this.getNivel() + "\nTipo: " + this.getTipo1().toString() + ", " + this.getTipo2().toString() + 
+        "\nVitalidad: " + this.getVitalidadActual() + "/" + this.getVitalidadMaxima() + "\nAtaque: " + this.getAtaque() + 
+        "  - Defensa: " + this.getDefensa() + "\nAtaque Especial: " + this.getAtaqueEspecial() + "  - Defensa Especial: " + 
+        this.getDefensaEspecial() + "\nVelocidad: " + this.getVelocidad() + "  - Fertilidad: " + this.getFertilidad() + "\n";
     }
 
     // Método ganarExperiencia para un uso adecuado de ésta. Implementa el método subirDeNivel, explicado abajo.
@@ -421,454 +422,464 @@ public class Pokemon {
     }
 
     // Método resultadoMovimientoAtaque para resolver habilidades de la clase MovimientoAtaque.
-    public void resultadoMovimientoAtaque(MovimientoAtaque habilidad, Pokemon pokemon){
-        if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.AGUA
+    public void resultadoMovimientoAtaque(int numHab, Pokemon pokemon){
+        if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.AGUA
         || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.FUEGO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.HIELO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.HIELO
         || pokemon.getTipo1() == Tipo.ROCA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.DRAGON
         || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA
         || pokemon.getTipo1() == Tipo.TIERRA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
             
-        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.FANTASMA || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.HADA
         || pokemon.getTipo1() == Tipo.LUCHA || pokemon.getTipo1() == Tipo.VENENO || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
         
-        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.PLANTA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo1() == Tipo.PLANTA
         || pokemon.getTipo1() == Tipo.PSIQUICO || pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.HADA){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.HADA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.ACERO){
-            habilidad.setVentaja1(0.5f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.ACERO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.DRAGON){
-            habilidad.setVentaja1(2f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo1() == Tipo.DRAGON){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.TIERRA){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.TIERRA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.DRAGON
         || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo1() == Tipo.AGUA
         || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.NORMAL){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.NORMAL){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(0.5f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.SINIESTRO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo1() == Tipo.FANTASMA
         || pokemon.getTipo1() == Tipo.PSIQUICO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.AGUA
         || pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.HIELO || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.VENENO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HADA && pokemon.getTipo1() == Tipo.DRAGON
         || pokemon.getTipo1() == Tipo.LUCHA || pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.AGUA || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.HIELO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo1() == Tipo.DRAGON
         || pokemon.getTipo1() == Tipo.PLANTA || pokemon.getTipo1() == Tipo.TIERRA || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
             
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.FANTASMA){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.FANTASMA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.BICHO
         || pokemon.getTipo1() == Tipo.HADA || pokemon.getTipo1() == Tipo.PSIQUICO || pokemon.getTipo1() == Tipo.VENENO
         || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.HIELO || pokemon.getTipo1() == Tipo.NORMAL || pokemon.getTipo1() == Tipo.ROCA
         || pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.FANTASMA){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.FANTASMA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.ROCA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.DRAGON || pokemon.getTipo1() == Tipo.FUEGO
         || pokemon.getTipo1() == Tipo.PLANTA || pokemon.getTipo1() == Tipo.VENENO || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo1() == Tipo.AGUA
         || pokemon.getTipo1() == Tipo.ROCA || pokemon.getTipo1() == Tipo.TIERRA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.SINIESTRO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.PSIQUICO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.LUCHA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo1() == Tipo.LUCHA
         || pokemon.getTipo1() == Tipo.VENENO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.LUCHA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo1() == Tipo.LUCHA
         || pokemon.getTipo1() == Tipo.TIERRA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.FUEGO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo1() == Tipo.BICHO || pokemon.getTipo1() == Tipo.FUEGO
         || pokemon.getTipo1() == Tipo.HIELO || pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.HADA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.HADA
         || pokemon.getTipo1() == Tipo.LUCHA || pokemon.getTipo1() == Tipo.SINIESTRO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo1() == Tipo.FANTASMA
         || pokemon.getTipo1() == Tipo.PSIQUICO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.VOLADOR){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.VOLADOR){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.BICHO
         || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.FUEGO || pokemon.getTipo1() == Tipo.ROCA
         || pokemon.getTipo1() == Tipo.VENENO){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.ACERO){
-            habilidad.setVentaja1(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.ACERO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.FANTASMA
         || pokemon.getTipo1() == Tipo.ROCA || pokemon.getTipo1() == Tipo.TIERRA || pokemon.getTipo1() == Tipo.VENENO){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.HADA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo1() == Tipo.HADA
         || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.ACERO
         || pokemon.getTipo1() == Tipo.ELECTRICO || pokemon.getTipo1() == Tipo.ROCA){
-            habilidad.setVentaja1(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo1() == Tipo.BICHO
         || pokemon.getTipo1() == Tipo.LUCHA || pokemon.getTipo1() == Tipo.PLANTA){
-            habilidad.setVentaja1(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(2f);
 
         }else{
-            habilidad.setVentaja1(1f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja1(1f);
         }
 
-        if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo2() == Tipo.ACERO || pokemon.getTipo2() == Tipo.AGUA
+        if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo2() == Tipo.ACERO || pokemon.getTipo2() == Tipo.AGUA
         || pokemon.getTipo2() == Tipo.ELECTRICO || pokemon.getTipo2() == Tipo.FUEGO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo2() == Tipo.HADA || pokemon.getTipo2() == Tipo.HIELO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ACERO && pokemon.getTipo2() == Tipo.HADA || pokemon.getTipo2() == Tipo.HIELO
         || pokemon.getTipo2() == Tipo.ROCA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo2() == Tipo.AGUA || pokemon.getTipo2() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo2() == Tipo.AGUA || pokemon.getTipo2() == Tipo.DRAGON
         || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.ROCA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.AGUA && pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.ROCA
         || pokemon.getTipo2() == Tipo.TIERRA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
             
-        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.FANTASMA || pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.HADA
         || pokemon.getTipo2() == Tipo.LUCHA || pokemon.getTipo2() == Tipo.VENENO || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
         
-        }else if(habilidad.getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo2() == Tipo.PLANTA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.BICHO && pokemon.getTipo2() == Tipo.PLANTA
         || pokemon.getTipo2() == Tipo.PSIQUICO || pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.HADA){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.HADA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.ACERO){
-            habilidad.setVentaja2(0.5f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.ACERO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.DRAGON){
-            habilidad.setVentaja2(2f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.DRAGON && pokemon.getTipo2() == Tipo.DRAGON){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.TIERRA){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.TIERRA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.DRAGON
         || pokemon.getTipo2() == Tipo.ELECTRICO || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ELECTRICO && pokemon.getTipo2() == Tipo.AGUA
         || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.NORMAL){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.NORMAL){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(0.5f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.SINIESTRO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FANTASMA && pokemon.getTipo2() == Tipo.FANTASMA
         || pokemon.getTipo2() == Tipo.PSIQUICO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo2() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo2() == Tipo.AGUA
         || pokemon.getTipo2() == Tipo.DRAGON || pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.ROCA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.FUEGO && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.BICHO || pokemon.getTipo2() == Tipo.HIELO || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HADA && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.VENENO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HADA && pokemon.getTipo2() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HADA && pokemon.getTipo2() == Tipo.DRAGON
         || pokemon.getTipo2() == Tipo.LUCHA || pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.AGUA || pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.HIELO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo2() == Tipo.DRAGON
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.HIELO && pokemon.getTipo2() == Tipo.DRAGON
         || pokemon.getTipo2() == Tipo.PLANTA || pokemon.getTipo2() == Tipo.TIERRA || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
             
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.FANTASMA){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.FANTASMA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.BICHO
         || pokemon.getTipo2() == Tipo.HADA || pokemon.getTipo2() == Tipo.PSIQUICO || pokemon.getTipo2() == Tipo.VENENO
         || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.LUCHA && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.HIELO || pokemon.getTipo2() == Tipo.NORMAL || pokemon.getTipo2() == Tipo.ROCA
         || pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo2() == Tipo.FANTASMA){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo2() == Tipo.FANTASMA){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.NORMAL && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.ROCA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.BICHO || pokemon.getTipo2() == Tipo.DRAGON || pokemon.getTipo2() == Tipo.FUEGO
         || pokemon.getTipo2() == Tipo.PLANTA || pokemon.getTipo2() == Tipo.VENENO || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo2() == Tipo.AGUA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PLANTA && pokemon.getTipo2() == Tipo.AGUA
         || pokemon.getTipo2() == Tipo.ROCA || pokemon.getTipo2() == Tipo.TIERRA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.SINIESTRO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.PSIQUICO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.LUCHA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.PSIQUICO && pokemon.getTipo2() == Tipo.LUCHA
         || pokemon.getTipo2() == Tipo.VENENO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo2() == Tipo.ACERO || pokemon.getTipo2() == Tipo.LUCHA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo2() == Tipo.ACERO || pokemon.getTipo2() == Tipo.LUCHA
         || pokemon.getTipo2() == Tipo.TIERRA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo2() == Tipo.BICHO || pokemon.getTipo2() == Tipo.FUEGO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.ROCA && pokemon.getTipo2() == Tipo.BICHO || pokemon.getTipo2() == Tipo.FUEGO
         || pokemon.getTipo2() == Tipo.HIELO || pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo2() == Tipo.HADA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo2() == Tipo.HADA
         || pokemon.getTipo2() == Tipo.LUCHA || pokemon.getTipo2() == Tipo.SINIESTRO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo2() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.SINIESTRO && pokemon.getTipo2() == Tipo.FANTASMA
         || pokemon.getTipo2() == Tipo.PSIQUICO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.VOLADOR){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.VOLADOR){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.BICHO
         || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.TIERRA && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.ELECTRICO || pokemon.getTipo2() == Tipo.FUEGO || pokemon.getTipo2() == Tipo.ROCA
         || pokemon.getTipo2() == Tipo.VENENO){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.ACERO){
-            habilidad.setVentaja2(0f);
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.ACERO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.FANTASMA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.FANTASMA
         || pokemon.getTipo2() == Tipo.ROCA || pokemon.getTipo2() == Tipo.TIERRA || pokemon.getTipo2() == Tipo.VENENO){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.HADA
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VENENO && pokemon.getTipo2() == Tipo.HADA
         || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo2() == Tipo.ACERO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo2() == Tipo.ACERO
         || pokemon.getTipo2() == Tipo.ELECTRICO || pokemon.getTipo2() == Tipo.ROCA){
-            habilidad.setVentaja2(0.5f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(0.5f);
 
-        }else if(habilidad.getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo2() == Tipo.BICHO
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getTipoMovimiento() == Tipo.VOLADOR && pokemon.getTipo2() == Tipo.BICHO
         || pokemon.getTipo2() == Tipo.LUCHA || pokemon.getTipo2() == Tipo.PLANTA){
-            habilidad.setVentaja2(2f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(2f);
 
         }else{
-            habilidad.setVentaja2(1f);
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentaja2(1f);
         }
 
-        habilidad.setVentajaTotal(habilidad.getVentaja1() * habilidad.getVentaja2());
+        ((MovimientoAtaque) this.getHabilidades().get(numHab)).setVentajaTotal(((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentaja1() * ((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentaja2());
+        if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentajaTotal() < 1){
+            System.out.println("No es efectivo.");
+        }else if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentajaTotal() > 1){
+            System.out.println("¡Es súper efectivo!");
+        }
 
-        if(habilidad.getFisEsp() == FisicoEspecial.FISICO){
-            habilidad.setDanyo((int)(habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueMejora()));
-            if(habilidad.getDanyo() - pokemon.getDefensaMejora() > 0){
+        if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getFisEsp() == FisicoEspecial.FISICO){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setDanyo((int)(((MovimientoAtaque) this.getHabilidades().get(numHab)).getPotencia() * ((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentajaTotal() + this.getAtaqueMejora()));
+            if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getDanyo() - pokemon.getDefensaMejora() > 0){
                 pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
-                (habilidad.getDanyo() - pokemon.getDefensaMejora()));
+                (((MovimientoAtaque) this.getHabilidades().get(numHab)).getDanyo() - pokemon.getDefensaMejora()));
             }
 
         }else{
-            habilidad.setDanyo((int)(habilidad.getPotencia() * habilidad.getVentajaTotal() + this.getAtaqueEspecialMejora()));
-            if(habilidad.getDanyo() - pokemon.getDefensaEspecialMejora() >  0){
+            ((MovimientoAtaque) this.getHabilidades().get(numHab)).setDanyo((int)(((MovimientoAtaque) this.getHabilidades().get(numHab)).getPotencia() * ((MovimientoAtaque) this.getHabilidades().get(numHab)).getVentajaTotal() + this.getAtaqueEspecialMejora()));
+            if(((MovimientoAtaque) this.getHabilidades().get(numHab)).getDanyo() - pokemon.getDefensaEspecialMejora() >  0){
                 pokemon.setVitalidadActual(pokemon.getVitalidadActual() - 
-                (habilidad.getDanyo() - pokemon.getDefensaEspecialMejora()));
+                (((MovimientoAtaque) this.getHabilidades().get(numHab)).getDanyo() - pokemon.getDefensaEspecialMejora()));
             }
         }
 
-        habilidad.resetVentajas();
+        ((MovimientoAtaque) this.getHabilidades().get(numHab)).resetVentajas();
     }
 
     // Método resultadoMovimientoEstado para resolver habilidades de la clase MovimientoEstado.
-    public void resultadoMovimientoEstado(MovimientoEstado habilidad, Pokemon pokemon){
-        if(habilidad.getEstadoPrincipal() == EstadoPrincipal.CONGELADO && pokemon.getTipo1() == Tipo.HIELO
+    public void resultadoMovimientoEstado(int numHab, Pokemon pokemon){
+        if(((MovimientoEstado) this.getHabilidades().get(numHab)).getEstadoPrincipal() == EstadoPrincipal.CONGELADO && pokemon.getTipo1() == Tipo.HIELO
         || pokemon.getTipo2() == Tipo.HIELO){
-            // No afecta, syso.
+            System.out.println("No es efectivo.");
 
-        }else if(habilidad.getEstadoPrincipal() == EstadoPrincipal.ENVENENADO && pokemon.getTipo1() == Tipo.VENENO
+        }else if(((MovimientoEstado) this.getHabilidades().get(numHab)).getEstadoPrincipal() == EstadoPrincipal.ENVENENADO && pokemon.getTipo1() == Tipo.VENENO
         || pokemon.getTipo2() == Tipo.VENENO || pokemon.getTipo1() == Tipo.ACERO || pokemon.getTipo2() == Tipo.ACERO){
-            // No afecta, syso.
+            System.out.println("No es efectivo.");
 
-        }else if(habilidad.getEstadoPrincipal() == EstadoPrincipal.PARALIZADO && pokemon.getTipo1() == Tipo.ELECTRICO
+        }else if(((MovimientoEstado) this.getHabilidades().get(numHab)).getEstadoPrincipal() == EstadoPrincipal.PARALIZADO && pokemon.getTipo1() == Tipo.ELECTRICO
         || pokemon.getTipo2() == Tipo.ELECTRICO){
-            // No afecta, syso.
+            System.out.println("No es efectivo.");
 
-        }else if(habilidad.getEstadoPrincipal() == EstadoPrincipal.QUEMADO && pokemon.getTipo1() == Tipo.FUEGO
+        }else if(((MovimientoEstado) this.getHabilidades().get(numHab)).getEstadoPrincipal() == EstadoPrincipal.QUEMADO && pokemon.getTipo1() == Tipo.FUEGO
         || pokemon.getTipo2() == Tipo.FUEGO){
-            // No afecta, syso.
+            System.out.println("No es efectivo.");
 
         }else{
-                pokemon.setEstadoPrincipal(habilidad.getEstadoPrincipal());
-                pokemon.setContadorEstadoP(habilidad.getDuracion());
+                pokemon.setEstadoPrincipal(((MovimientoEstado) this.getHabilidades().get(numHab)).getEstadoPrincipal());
+                pokemon.setContadorEstadoP(((MovimientoEstado) this.getHabilidades().get(numHab)).getDuracion());
         }
     }
 
     // Método resultadoMovimientoMejora para resolver habilidades de la clase MovimientoMejora.
-    public void resultadoMovimientoMejora(MovimientoMejora habilidad){
-        if(habilidad.getBuff() == Mejora.ATAQUE_FISICO){
-            if(habilidad.getNivelDeBuff() == 2){
+    public void resultadoMovimientoMejora(int numHab){
+        if(((MovimientoMejora) this.getHabilidades().get(numHab)).getBuff() == Mejora.ATAQUE_FISICO){
+            if(((MovimientoMejora) this.getHabilidades().get(numHab)).getNivelDeBuff() == 2){
                 this.setAtaqueMejora((int)(this.ataqueMejora * 1.4));
             }else{
                 this.setAtaqueMejora((int)(this.ataqueMejora * 1.2));
             }
-            this.setContadorMejoraAtaque(habilidad.getDuracion());
+            this.setContadorMejoraAtaque(((MovimientoMejora) this.getHabilidades().get(numHab)).getDuracion());
+            System.out.println("El Ataque de " + this.getMote() + " subió.");
             
-        }else if(habilidad.getBuff() == Mejora.ATAQUE_ESPECIAL){
-            if(habilidad.getNivelDeBuff() == 2){
+        }else if(((MovimientoMejora) this.getHabilidades().get(numHab)).getBuff() == Mejora.ATAQUE_ESPECIAL){
+            if(((MovimientoMejora) this.getHabilidades().get(numHab)).getNivelDeBuff() == 2){
                 this.setAtaqueEspecialMejora((int)(this.ataqueEspecialMejora * 1.4));
             }else{
                 this.setAtaqueEspecialMejora((int)(this.ataqueEspecialMejora * 1.2));
             }
-            this.setContadorMejoraAtEspecial(habilidad.getDuracion());
+            this.setContadorMejoraAtEspecial(((MovimientoMejora) this.getHabilidades().get(numHab)).getDuracion());
+            System.out.println("El Ataque Especial de " + this.getMote() + " subió.");
 
-        }else if(habilidad.getBuff() == Mejora.DEFENSA_FISICA){
-            if(habilidad.getNivelDeBuff() == 2){
+        }else if(((MovimientoMejora) this.getHabilidades().get(numHab)).getBuff() == Mejora.DEFENSA_FISICA){
+            if(((MovimientoMejora) this.getHabilidades().get(numHab)).getNivelDeBuff() == 2){
                 this.setDefensaMejora((int)(this.defensaMejora * 1.4));
             }else{
                 this.setDefensaMejora((int)(this.defensaMejora * 1.2));
             }
-            this.setContadorMejoraDefensa(habilidad.getDuracion());
+            this.setContadorMejoraDefensa(((MovimientoMejora) this.getHabilidades().get(numHab)).getDuracion());
+            System.out.println("La Defensa de " + this.getMote() + " subió.");
 
-        }else if(habilidad.getBuff() == Mejora.DEFENSA_ESPECIAL){
-            if(habilidad.getNivelDeBuff() == 2){
+        }else if(((MovimientoMejora) this.getHabilidades().get(numHab)).getBuff() == Mejora.DEFENSA_ESPECIAL){
+            if(((MovimientoMejora) this.getHabilidades().get(numHab)).getNivelDeBuff() == 2){
                 this.setDefensaEspecialMejora((int)(this.defensaEspecialMejora * 1.4));
             }else{
                 this.setDefensaEspecialMejora((int)(this.defensaEspecialMejora * 1.2));
             }
-            this.setContadorMejoraDefEspecial(habilidad.getDuracion());
+            this.setContadorMejoraDefEspecial(((MovimientoMejora) this.getHabilidades().get(numHab)).getDuracion());
+            System.out.println("La Defensa Especial de " + this.getMote() + " subió.");
 
-        }else if(habilidad.getBuff() == Mejora.VELOCIDAD){
-            if(habilidad.getNivelDeBuff() == 2){
+        }else if(((MovimientoMejora) this.getHabilidades().get(numHab)).getBuff() == Mejora.VELOCIDAD){
+            if(((MovimientoMejora) this.getHabilidades().get(numHab)).getNivelDeBuff() == 2){
                 this.setVelocidadMejora((int)(this.velocidadMejora * 1.4));
             }else{
                 this.setVelocidadMejora((int)(this.velocidadMejora * 1.2));
             }
-            this.setContadorMejoraVelocidad(habilidad.getDuracion());
+            this.setContadorMejoraVelocidad(((MovimientoMejora) this.getHabilidades().get(numHab)).getDuracion());
+            System.out.println("La Velocidad de " + this.getMote() + " subió.");
         }
     }
 
     // El método usarMovimiento utiliza "instanceof" para actuar en consecuencia con el tipo de Movimiento usado.
-    public boolean usarMovimiento(int numHab, Pokemon pokemon){
+    public void usarMovimiento(int numHab, Pokemon pokemon){
         if(this.estaminaActual < this.habilidades.get(numHab).getConsumo()){
-            return false;
-        }else{
-            this.setEstaminaActual(this.estaminaActual - this.habilidades.get(numHab).getConsumo());
-            System.out.println(this.getMote() + " usó " + this.habilidades.get(numHab).getNombreHabilidad() + "...");
+            System.out.println(this.getMote() + " no tiene suficiente Estamina.");
 
+        }else{
+
+            this.setEstaminaActual(this.estaminaActual - this.habilidades.get(numHab).getConsumo());
+            
             if(this.habilidades.get(numHab) instanceof MovimientoAtaque){
-                this.resultadoMovimientoAtaque((MovimientoAtaque) this.habilidades.get(numHab), pokemon);
+                this.resultadoMovimientoAtaque(numHab, pokemon);
 
             }else if(this.habilidades.get(numHab) instanceof MovimientoEstado){
-                this.resultadoMovimientoEstado((MovimientoEstado) this.habilidades.get(numHab), pokemon);
+                this.resultadoMovimientoEstado(numHab, pokemon);
 
             }else if(this.habilidades.get(numHab) instanceof MovimientoMejora){
-                this.resultadoMovimientoMejora((MovimientoMejora) this.habilidades.get(numHab));
+                this.resultadoMovimientoMejora(numHab);
 
             }
-            return true;
         }
     }
 

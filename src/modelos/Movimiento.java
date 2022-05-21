@@ -16,4 +16,11 @@ public abstract class Movimiento {
     public int getConsumo() {
         return consumo;
     }
+
+    public void setNombreHabilidad(String nombreHabilidad) {
+        this.nombreHabilidad = nombreHabilidad;
+    }
+    public void setConsumo(int consumo) {
+        this.consumo = consumo;
+    }
 }

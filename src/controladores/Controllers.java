@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import com.mysql.cj.protocol.Resultset;
+//import com.mysql.cj.protocol.Resultset;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,8 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import src.modelos.Pokemon;
-import src.modelos.Tipo;
+// import src.modelos.Pokemon;
+// import src.modelos.Tipo;
 
 public class Controllers implements Initializable {
 
@@ -72,7 +72,7 @@ public class Controllers implements Initializable {
             rs.next();
         }
 
-        Pokemon pokemon = new Pokemon(rs.getString("NOMBRE"), rs.getInt("VITALIDAD"), rs.getInt("ATAQUE"), rs.getInt("DEFENSA"), rs.getInt("ATK_ESPECIAL"), rs.getInt("DEF_ESPECIAL"), rs.getInt("VELOCIDAD"), Tipo.valueOf(rs.getString("TIPO1")), Tipo.valueOf(rs.getString("TIPO2")));
+        //Pokemon pokemon = new Pokemon(rs.getString("NOMBRE"), rs.getInt("VITALIDAD"), rs.getInt("ATAQUE"), rs.getInt("DEFENSA"), rs.getInt("ATK_ESPECIAL"), rs.getInt("DEF_ESPECIAL"), rs.getInt("VELOCIDAD"), Tipo.valueOf(rs.getString("TIPO1")), Tipo.valueOf(rs.getString("TIPO2")));
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/EscenarioCapturaJc.fxml"));
         root = loader.load();
@@ -80,8 +80,8 @@ public class Controllers implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
 
-        Controllers controller = loader.getController();
-        controller.setPokemon(pokemon);
+        // Controllers controller = loader.getController();
+        // controller.setPokemon(pokemon);
         
         stage.show();
 

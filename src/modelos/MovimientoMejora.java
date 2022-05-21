@@ -22,4 +22,14 @@ public class MovimientoMejora extends Movimiento {
     public int getNivelDeBuff() {
         return nivelDeBuff;
     }
+    
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    public void setBuff(Mejora buff) {
+        this.buff = buff;
+    }
+    public void setNivelDeBuff(int nivelDeBuff) {
+        this.nivelDeBuff = nivelDeBuff;
+    }
 }

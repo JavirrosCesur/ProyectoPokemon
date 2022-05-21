@@ -6,9 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch TesteoKbrn",
+            "name": "Launch MainProyecto",
             "request": "launch",
-            "mainClass": "src.modelos.TesteoKbrn",
+            "mainClass": "src.modelos.MainProyecto",
             "projectName": "ProyectoPokemon_c345daf8"
         },
         {

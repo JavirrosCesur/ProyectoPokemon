@@ -18,4 +18,11 @@ public class MovimientoEstado extends Movimiento {
     public EstadoPrincipal getEstadoPrincipal() {
         return estadoPrincipal;
     }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    public void setEstadoPrincipal(EstadoPrincipal estadoPrincipal) {
+        this.estadoPrincipal = estadoPrincipal;
+    }
 }
