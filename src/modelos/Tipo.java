@@ -1,5 +1,8 @@
 package modelos;
 
+/**
+ * Creacion del enumerado Tipo que nos servira para diferenciar los tipos que tendra cada pokemon y sus compatibilidades
+ */
 public enum Tipo {
     ACERO,
     AGUA,
