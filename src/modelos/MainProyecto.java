@@ -307,15 +307,25 @@ public class MainProyecto {
                     break;
 
                 case 6:
+                    for (Pokemon p : jugador.getEquipo()) {
+                        System.out.println(p.getMote() + ". Vida: " + p.getVitalidadActual() + " / " + p.getVitalidadMaxima());
+                    }
+                    jugador.recuperacion();
+                    for (Pokemon p : jugador.getEquipo()) {
+                        System.out.println(p.getMote() + ". Vida: " + p.getVitalidadActual() + " / " + p.getVitalidadMaxima());
+                    }
                     break;    
 
                 case 7:
                     for (Pokemon p : jugador.getEquipo()) {
-                        System.out.println(p.toString());
+                        System.out.println(p);
                     }
                     break;
                 
                 case 8:
+                    for (Pokemon p : jugador.getCaja()) {
+                        System.out.println(p);
+                    }
                     break;
 
                 case 9:
